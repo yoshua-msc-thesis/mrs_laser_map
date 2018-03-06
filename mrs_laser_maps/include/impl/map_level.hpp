@@ -275,7 +275,7 @@ inline bool MapLevel<PointT, BufferType>::calcIndices(const Eigen::Vector3f& p, 
 template <typename PointT, typename BufferType>
 void MapLevel<PointT, BufferType>::translateMap(const Eigen::Vector3f& translation)
 {
-  if (isnan(translation(0)) || isnan(translation(1)) || isnan(translation(2)))
+  if (std::isnan(translation(0)) || std::isnan(translation(1)) || std::isnan(translation(2)))
     return;
 
   translation_increment_.x += translation(0);
@@ -1033,7 +1033,7 @@ bool MapLevel<PointT, BufferType>::insertRay(const PointT& p, const Eigen::Matri
   p_origin(1) += translation_increment_.y;
   p_origin(2) += translation_increment_.z;
 
-  if (isnan(p.x) || isnan(p.y) || isnan(p.z))
+  if (std::isnan(p.x) || std::isnan(p.y) || std::isnan(p.z))
     return false;
 
   Eigen::Vector3f direction = (p_map.getVector3fMap() - p_origin);
@@ -1422,7 +1422,7 @@ void MapLevel<PointT, BufferType>::setAllEndPointFlags(bool end_point)
 template <typename PointT, typename BufferType>
 void MapLevel<PointT, BufferType>::setEndPointFlag(const PointT& point, const Eigen::Matrix4f& sensor_transform)
 {
-  if (isnan(point.x) || isnan(point.y) || isnan(point.z))
+  if (std::isnan(point.x) || std::isnan(point.y) || std::isnan(point.z))
     return;
 
   GridCellType* endpoint_cell_ptr;

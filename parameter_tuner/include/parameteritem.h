@@ -4,12 +4,15 @@
 #ifndef PARAMETERITEM_H
 #define PARAMETERITEM_H
 
+// Reference: https://stackoverflow.com/questions/44175071/prase-error-while-boost-join-during-cmake
+#ifndef Q_MOC_RUN
 #include <QTreeWidget>
 #include <QSpinBox>
 #include <QLineEdit>
 #include <QCheckBox>
 
 #include <config_server/parameter.h>
+#endif
 
 namespace parametertuner
 {

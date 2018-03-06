@@ -1,6 +1,8 @@
 //rqt plugin for tuning parameters
 //Author: Sebastian Schüller
 
+// Reference: https://stackoverflow.com/questions/44175071/prase-error-while-boost-join-during-cmake
+#ifndef Q_MOC_RUN
 #include <ros/ros.h>
 #include <dynamic_reconfigure/server.h>
 #include <rqt_gui_cpp/plugin.h>
@@ -9,6 +11,7 @@
 
 #include <config_server/ParameterList.h>
 #include <QMutex>
+#endif
 
 #ifndef PARAMETERTUNER_H
 #define PARAMETERTUNER_H

@@ -106,11 +106,18 @@ SET ( SLAM_SRCS
 )         
 
 SET (SLAM_LIBS
-        ${G2O_CORE_LIBRARY} 
-        ${G2O_STUFF_LIBRARY} 
-        ${G2O_SOLVER_CSPARSE} 
-        ${G2O_SOLVER_CSPARSE_EXTENSION} 
-        ${G2O_TYPES_SLAM3D} 
+	${G2O_CORE_LIBRARY} 
+	${G2O_STUFF_LIBRARY} 
+	${G2O_SOLVER_CHOLMOD} 
+	${G2O_SOLVER_CSPARSE} 
+	${G2O_SOLVER_DENSE}
+	${G2O_SOLVER_PCG} 
+	${G2O_TYPES_ICP}
+	${G2O_TYPES_SLAM3D}
+	${G2O_TYPES_SBA}
+	cholmod
+	cxsparse
+	  
 )
 
 add_library(scan_assembler_nodelet src/nodes/scan_assembler_nodelet.cpp)

@@ -462,7 +462,7 @@ bool MultiResolutionSurfelRegistration::registrationErrorFunctionLM(
       //		float weight = it->weight * exp( -0.5 * (it->z - it->f).squaredNorm() * it->inv_sigma2 );
 
       
-      if (isnan(it->error) || isnan(weight))
+      if (std::isnan(it->error) || std::isnan(weight))
         ROS_DEBUG_STREAM_NAMED("surfel_registration","skipping nan values.");
       else
       {
@@ -604,7 +604,7 @@ bool MultiResolutionSurfelRegistration::registrationErrorFunctionWithFirstAndSec
 
       const Eigen::Matrix<double, 6, 3> JtW = weight * it->df_dx.transpose() * it->W;
 
-      if (isnan(it->error) || isnan(weight))
+      if (std::isnan(it->error) || std::isnan(weight))
         ROS_DEBUG_STREAM_NAMED("surfel_registration","skipping nan values.");
       else
       {
@@ -919,7 +919,7 @@ bool MultiResolutionSurfelRegistration::estimateTransformationLevenbergMarquardt
     qz = x(5);
     qw = params.lastWSign * sqrt(1.0 - qx * qx - qy * qy - qz * qz);
 
-    if (isnan(qw) || fabsf(qx) > 1.f || fabsf(qy) > 1.f || fabsf(qz) > 1.f)
+    if (std::isnan(qw) || fabsf(qx) > 1.f || fabsf(qy) > 1.f || fabsf(qz) > 1.f)
     {
       return false;
     }
